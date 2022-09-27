@@ -22,7 +22,7 @@ def parse_data() -> None:
 
     us_wiiU: dict[str, int] = parse_collection(
         json.loads(data.usWiiU_data)['data'])
-    print("-----------------------------------------")
+    """ print("-----------------------------------------")
     print("Japan WiiU Hardware Comparisons")
     print(japan_wiiU)
     print("-----------------------------------------")
@@ -33,16 +33,21 @@ def parse_data() -> None:
     print(europe_wiiU)
     print("-----------------------------------------")
     print("USA WiiU Hardware Comparisons")
-    print(us_wiiU)
+    print(us_wiiU) """
+    print_dict(japan_wiiU)
 
 
 def parse_collection(data) -> dict[str, int]:
     months = {}
     for obj in data:
-        print(obj['x'])
         date = convertTime(int(obj['x']) / 1000)
         if date not in months:
             months[date] = int(obj['y'])
         else:
             months[date] += int(obj['y'])
     return months
+
+
+def print_dict(dictionary):
+    for item in dictionary.items():
+        print(item)
