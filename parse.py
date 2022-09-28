@@ -22,6 +22,21 @@ def parse_data() -> None:
 
     us_wiiU: dict[str, int] = parse_collection(
         json.loads(data.usWiiU_data)['data'])
+
+    # Global Hardware Comparisions
+
+    global_wiiU: dict[str, int] = parse_collection(
+        json.loads(data.global_WiiU)['data'])
+
+    global_NS: dict[str, int] = parse_collection(
+        json.loads(data.global_NS)['data'])
+
+    global_Xone: dict[str, int] = parse_collection(
+        json.loads(data.global_Xone)['data'])
+
+    global_PS4: dict[str, int] = parse_collection(
+        json.loads(data.global_PS4)['data'])
+
     """ print("-----------------------------------------")
     print("Japan WiiU Hardware Comparisons")
     print(japan_wiiU)
@@ -34,7 +49,7 @@ def parse_data() -> None:
     print("-----------------------------------------")
     print("USA WiiU Hardware Comparisons")
     print(us_wiiU) """
-    print_dict(japan_wiiU)
+    print_dict(global_wiiU)
 
 
 def parse_collection(data) -> dict[str, int]:
